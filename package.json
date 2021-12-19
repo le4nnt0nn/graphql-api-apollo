@@ -1,0 +1,26 @@
+{
+  "name": "graphql-api-apollo",
+  "version": "1.0.0",
+  "description": "Implementation and testing Graphql with Apollo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env-cmd nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/le4nnt0nn/graphql-api-apollo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/le4nnt0nn/graphql-api-apollo/issues"
+  },
+  "homepage": "https://github.com/le4nnt0nn/graphql-api-apollo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}
