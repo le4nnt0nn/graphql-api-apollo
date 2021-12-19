@@ -1,20 +1,22 @@
 const { ApolloServer, gql } = require('apollo-server');
+const { join } = require('path');
+const { loadTypedefsSync } = require('@graphql-tools/load');
+const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 
-const typeDefs = gql`
+const sources = loadTypedefsSync(join(__dirname, './typeDefs.gql'), {
+    loaders: [
+        new GraphQLFileLoader()
+    ]
+})
 
-    type Query {
-        hello: String
-    }
-
-`;
+const typeDefs = sources.map(source => source.document)
 
 const resolvers = {
     Query: {
-        hello: () => {
-          return `Listening in ${process.env.PORT}`  
-        }
+        
     }
 };
+
 
 const server = new ApolloServer({
     typeDefs,
