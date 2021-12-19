@@ -21,9 +21,12 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^7.3.3",
+    "@graphql-tools/load": "^7.5.0",
     "apollo-server": "^3.5.0",
     "env-cmd": "^10.1.0",
     "graphql": "^16.2.0",
+    "graphql-tools": "^8.2.0",
     "graphql-type-datetime": "^0.2.4"
   }
 }
