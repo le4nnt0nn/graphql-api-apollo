@@ -7,7 +7,7 @@ const sources = loadTypedefsSync(join(__dirname, './typeDefs.gql'), {
     loaders: [
         new GraphQLFileLoader()
     ]
-})
+});
 
 const typeDefs = sources.map(source => source.document)
 
