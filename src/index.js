@@ -13,7 +13,9 @@ const typeDefs = sources.map(source => source.document)
 
 const resolvers = {
     Query: {
-        
+        listarAeropuertos: () => {
+            return [{id: "1". localizacion: "Sevilla", rutas: [], aviones: []}]
+        }
     }
 };
 
@@ -23,7 +25,7 @@ const server = new ApolloServer({
     resolvers
 });
 
-server.listen({port: process.env.PORT}).then(({url}) => {
+server.listen({ port: process.env.PORT }).then(({ url }) => {
     console.log(`Servidor iniciado en ${url}`);
 });
 
