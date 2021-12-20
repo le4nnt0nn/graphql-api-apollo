@@ -14,7 +14,7 @@ const typeDefs = sources.map(source => source.document)
 const resolvers = {
     Query: {
         listarAeropuertos: () => {
-            return [{id: "1". localizacion: "Sevilla", rutas: [], aviones: []}]
+            return [{id: "1", localizacion: "Sevilla", rutas: [], aviones: []}]
         }
     }
 };
