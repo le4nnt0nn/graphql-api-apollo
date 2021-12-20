@@ -31,3 +31,7 @@ type Query {
   obtenerAeropuertoPorId(id: ID!): Aeropuerto
   obtenerAeropuerto(id: ID, localizacion: String): Aeropuerto
 }
+
+type Mutation {
+    crearPasajero(idAvion: ID!, nombre: String, apellido: String): Pasajero
+}

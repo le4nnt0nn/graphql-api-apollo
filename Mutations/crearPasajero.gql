@@ -1,0 +1,7 @@
+mutation {
+    crearPasajero(idAvion:"74cbd712-ed3f-41e0-bec8-560c9df63ef5", nombre:"Antonio", apellido: "Cortés") {
+        id
+        nombre
+        apellido
+    }
+}

@@ -3,6 +3,7 @@ const { join } = require('path');
 const { loadTypedefsSync } = require('@graphql-tools/load');
 const { GraphQLFileLoader } = require('@graphql-tools/graphql-file-loader');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 
 const aeropuertos = JSON.parse(fs.readFileSync(join(__dirname, './dataset.json'), 'utf-8'));
 
@@ -18,7 +19,7 @@ const typeDefs = sources.map(source => source.document)
 
 const resolvers = {
     Query: {
-        listarAeropuertos: () => {return aeropuertos},
+        listarAeropuertos: () => { return aeropuertos },
         obtenerAeropuertoPorId: (obj, args) => {
             const response = aeropuertos.filter(aeropuerto => {
                 aeropuerto.id === args.id;
@@ -32,6 +33,28 @@ const resolvers = {
                 }
             });
             return response[0];
+        }
+    },
+    Mutation: {
+        crearPasajero: (obj, { idAvion, nombre, apellido }) => {
+            const pasajero = { id: uuidv4(), nombre, apellido }
+            let insertado = false
+            aeropuertos
+                .forEach(aeropuerto => {
+                    aeropuerto.aviones.forEach(avion => {
+                        if (avion.id === idAvion) {
+                            avion.pasajeros.push(pasajero)
+                            insertado = true
+                            return
+                        }
+                    })
+                })
+
+            if (insertado) {
+                return pasajero
+            }
+
+            throw 'Avion no existe';
         }
     }
 };
