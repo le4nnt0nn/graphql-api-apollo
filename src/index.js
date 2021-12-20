@@ -104,7 +104,9 @@ const resolvers = {
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    introspection: false, //deshabilita el autocompletado
+    playground: false //deshabilita el playground (interfaz navegador)
 });
 
 server.listen({ port: process.env.PORT }).then(({ url }) => {
