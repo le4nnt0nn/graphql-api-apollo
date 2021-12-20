@@ -1,0 +1,6 @@
+mutation {
+    actualizarVelocidadHora(idAvion: "31b8c430-e37a-4112-90ce-8996275aa050", velocidadHora: 666) {
+        id
+        velocidadHora
+    }
+}

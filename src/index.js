@@ -55,6 +55,26 @@ const resolvers = {
             }
 
             throw 'Avion no existe';
+        },
+        actualizarVelocidadHora: (obj, { idAvion, velocidadHora }) => {
+            let returnValue = null
+
+            aeropuertos.map(aeropuerto => {
+                aeropuerto.aviones = aeropuerto.aviones.map(avion => {
+                    if (avion.id === idAvion) {
+                        avion.velocidadHora = velocidadHora
+                        returnValue = avion
+                    }
+                    return avion
+                })
+                return aeropuerto
+            })
+
+            if (returnValue) {
+                return returnValue
+            }
+
+            throw 'Avion no existente'
         }
     }
 };

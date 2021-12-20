@@ -34,4 +34,5 @@ type Query {
 
 type Mutation {
     crearPasajero(idAvion: ID!, nombre: String, apellido: String): Pasajero
+    actualizarVelocidadHora(idAvion: ID!, velocidadHora: Int): Avion!
 }
