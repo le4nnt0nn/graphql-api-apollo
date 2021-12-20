@@ -4,7 +4,9 @@
         localizacion
         aviones {
             id
-            velocidadHora
+            pasajeros {
+                nombre
+            }
         }
     }
 }

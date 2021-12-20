@@ -75,6 +75,28 @@ const resolvers = {
             }
 
             throw 'Avion no existente'
+        },
+        vaciarPasajeros: (obj, { idAvion }) => {
+            console.log(obj)
+            let returnValue = null
+
+            aeropuertos.map(aeropuerto => {
+                aeropuerto.aviones = aeropuerto.aviones.map(avion => {
+                    if (avion.id === idAvion) {
+                        avion.pasajeros = []
+                        returnValue = avion
+                    }
+                    return avion
+                })
+                return aeropuerto
+            })
+
+            if (returnValue) {
+                return returnValue
+            }
+
+            throw 'Avion no existente'
+
         }
     }
 };
