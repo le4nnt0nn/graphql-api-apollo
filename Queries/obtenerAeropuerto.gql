@@ -1,0 +1,9 @@
+{
+    obtenerAeropuerto(id: "edbe54af-caf1-4672-a2c2-26eb8f2b1dde") {
+        localizacion
+        rutas {
+            fechaHoraSalida
+            kilometros
+        }
+    }
+}
