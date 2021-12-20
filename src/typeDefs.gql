@@ -26,3 +26,7 @@ type Pasajero {
     nombre: String!
     apellido: String!
 }
+
+type Query {
+    listarAeropuertos: [Aeropuerto!]!
+}
